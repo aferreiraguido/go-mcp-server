@@ -1,0 +1,11 @@
+# Dependencies (2)
+
+| Module | Version | Indirect |
+|---|---|---|
+| `github.com/baz/qux` | `v0.1.0` | yes |
+| `github.com/foo/bar` | `v1.2.3` | no |
+
+## Replace (2)
+
+- `example.com/old  => ../old `
+- `github.com/foo/bar  => ../stubs/bar `

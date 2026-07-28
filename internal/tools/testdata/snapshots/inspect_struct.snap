@@ -1,0 +1,27 @@
+# Struct: `Greeter`
+
+| Field | Value |
+|---|---|
+| Exported | yes |
+| Location | `greeter.go:16` |
+
+## Doc
+
+Greeter greets people by name.
+
+## Fields (3)
+
+| Name | Type | Tag | Embedded | Exported |
+|---|---|---|---|---|
+| `Name` | `string` | `json:"name"` | no | yes |
+| `output` | `io.Writer` | `-` | no | no |
+| `io.Writer` | `io.Writer` | `-` | yes | no |
+
+## Methods (4)
+
+| Name | Signature | Receiver | Location |
+|---|---|---|---|
+| `Greet` | `() string` | `*Greeter` | `greeter.go:28` |
+| `Speak` | `(msg string) string` | `*Greeter` | `greeter.go:33` |
+| `String` | `() string` | `*Greeter` | `greeter.go:38` |
+| `reset` | `()` | `*Greeter` | `greeter.go:43` |

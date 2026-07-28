@@ -1,0 +1,5 @@
+# Implementations: `Speaker` (1)
+
+| Type | Via | Location |
+|---|---|---|
+| `*Greeter` | `pointer` | `greeter.go:16` |

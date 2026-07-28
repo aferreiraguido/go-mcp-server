@@ -1,0 +1,9 @@
+# Constants (5)
+
+| Name | Type | Value | Exported | Location |
+|---|---|---|---|---|
+| `Answer` | `-` | `42` | yes | `sub/sub.go:5` |
+| `ModeNormal` | `-` | `(iota continuation)` | yes | `main.go:17` |
+| `ModeQuiet` | `-` | `iota` | yes | `main.go:16` |
+| `ModeVerbose` | `-` | `(iota continuation)` | yes | `main.go:18` |
+| `Version` | `-` | `"1.0"` | yes | `main.go:12` |

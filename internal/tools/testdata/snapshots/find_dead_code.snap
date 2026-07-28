@@ -1,0 +1,5 @@
+# Dead Code (1)
+
+| Severity | Pattern | Location | Context |
+|---|---|---|---|
+| `medium` | `unused symbol: func helper` | `main.go:37` | `func helper(s string) string {` |

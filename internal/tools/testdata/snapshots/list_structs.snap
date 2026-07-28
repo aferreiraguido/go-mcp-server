@@ -1,0 +1,5 @@
+# Structs (1)
+
+| Name | Fields | Exported | Location |
+|---|---|---|---|
+| `Greeter` | 3 | yes | `greeter.go:16` |

@@ -1,0 +1,10 @@
+# Loaded Projects (2)
+
+| Name | Alias | Kind | Path |
+|------|-------|------|------|
+| `sample_module` | `sample` | module | `/fixtures/sample_module` |
+| `sample_ws` | `-` | workspace | `/fixtures/sample_ws` |
+
+## Workspace Members
+
+- `sample_ws`: ./cmd/app, ./lib/core

@@ -1,0 +1,17 @@
+# Interface: `Speaker`
+
+| Field | Value |
+|---|---|
+| Exported | yes |
+| Location | `greeter.go:9` |
+
+## Doc
+
+Speaker is anything that can speak a message.
+
+## Methods (2)
+
+| Name | Signature | Embedded |
+|---|---|---|
+| `Speak` | `(msg string) string` | no |
+| `fmt.Stringer` | `(embedded)` | yes |

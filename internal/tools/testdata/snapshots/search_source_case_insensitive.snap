@@ -1,0 +1,17 @@
+# Search: `greeter` (13 matches)
+
+| Location | Content |
+|---|---|
+| `greeter.go:15` | `// Greeter greets people by name.` |
+| `greeter.go:16` | `type Greeter struct {` |
+| `greeter.go:22` | `// NewGreeter builds a Greeter for name writing to w.` |
+| `greeter.go:23` | `func NewGreeter(name string, w io.Writer) *Greeter {` |
+| `greeter.go:24` | `return &Greeter{Name: name, output: w}` |
+| `greeter.go:28` | `func (g *Greeter) Greet() string {` |
+| `greeter.go:33` | `func (g *Greeter) Speak(msg string) string {` |
+| `greeter.go:37` | `// String implements fmt.Stringer (so *Greeter satisfies Speaker).` |
+| `greeter.go:38` | `func (g *Greeter) String() string {` |
+| `greeter.go:42` | `// reset clears the greeter state. Unexported.` |
+| `greeter.go:43` | `func (g *Greeter) reset() {` |
+| `greeter_test.go:6` | `g := NewGreeter("test", nil)` |
+| `main.go:31` | `g := NewGreeter(DefaultName, io.Discard)` |

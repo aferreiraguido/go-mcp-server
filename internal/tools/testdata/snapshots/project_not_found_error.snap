@@ -1,0 +1,5 @@
+# Error
+
+```
+project 'ghost' not found (or expired). Load it first with load_go_project
+```

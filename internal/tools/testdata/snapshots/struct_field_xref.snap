@@ -1,0 +1,15 @@
+# Field XRef: `Name`
+
+## Declarations (1)
+
+| Struct | Location | Declaration |
+|---|---|---|
+| `Greeter` | `greeter.go:17` | `Name   string `json:"name"`` |
+
+## References (3)
+
+| Function | Location | Context |
+|---|---|---|
+| `NewGreeter` | `greeter.go:24` | `return &Greeter{Name: name, output: w}` |
+| `Greeter.Greet` | `greeter.go:29` | `return "hello " + g.Name` |
+| `Greeter.reset` | `greeter.go:44` | `g.Name = ""` |

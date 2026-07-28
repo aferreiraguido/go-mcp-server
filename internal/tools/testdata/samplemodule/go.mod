@@ -1,0 +1,12 @@
+module example.com/samplemodule
+
+go 1.21
+
+require (
+	github.com/foo/bar v1.2.3
+	github.com/baz/qux v0.1.0 // indirect
+)
+
+replace example.com/old => ../old
+
+replace github.com/foo/bar => ../stubs/bar

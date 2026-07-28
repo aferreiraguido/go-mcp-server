@@ -1,0 +1,7 @@
+# Binario del servidor
+/go-mcp-server
+/dist/
+
+# Go
+*.test
+*.out

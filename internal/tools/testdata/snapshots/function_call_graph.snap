@@ -1,0 +1,13 @@
+# Call graph: `Greet`
+
+## Callers (4)
+
+| Function | Location | Context |
+|---|---|---|
+| `Greeter.Speak` | `greeter.go:34` | `return g.Greet() + ": " + msg` |
+| `Greeter.String` | `greeter.go:39` | `return g.Greet()` |
+| `TestGreet` | `greeter_test.go:7` | `if g.Greet() != "hello test" {` |
+| `main` | `main.go:32` | `fmt.Println(g.Greet())` |
+## Callees
+
+_No callees found._

@@ -1,0 +1,6 @@
+# Variables (2)
+
+| Name | Type | Exported | Location |
+|---|---|---|---|
+| `DefaultName` | `= "world"` | yes | `main.go:22` |
+| `counter` | `int` | no | `main.go:24` |

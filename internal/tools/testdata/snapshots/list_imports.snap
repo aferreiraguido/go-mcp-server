@@ -1,0 +1,10 @@
+# Imports (6)
+
+| File | Import | Alias |
+|---|---|---|
+| `greeter.go` | `fmt` | - |
+| `greeter.go` | `io` | - |
+| `greeter_test.go` | `testing` | - |
+| `main.go` | `fmt` | - |
+| `main.go` | `github.com/foo/bar` | - |
+| `main.go` | `io` | - |

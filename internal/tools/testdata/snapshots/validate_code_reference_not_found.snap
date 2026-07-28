@@ -1,0 +1,5 @@
+# Validate: `Ghost`
+
+**NOT_FOUND** — no top-level symbol with that name.
+
+Note: methods are not matched (top-level func/type/const/var only).

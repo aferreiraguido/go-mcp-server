@@ -1,0 +1,10 @@
+# References: `Greet` (6, textual)
+
+| Location | Context |
+|---|---|
+| `greeter.go:27` | `// Greet returns the greeting message.` |
+| `greeter.go:28` | `func (g *Greeter) Greet() string {` |
+| `greeter.go:34` | `return g.Greet() + ": " + msg` |
+| `greeter.go:39` | `return g.Greet()` |
+| `greeter_test.go:7` | `if g.Greet() != "hello test" {` |
+| `main.go:32` | `fmt.Println(g.Greet())` |

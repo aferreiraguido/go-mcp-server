@@ -1,0 +1,20 @@
+# Function: `Greet`
+
+| Field | Value |
+|---|---|
+| Signature | `func Greet() string` |
+| Receiver | `*Greeter` |
+| Exported | yes |
+| Location | `greeter.go:28` |
+
+## Doc
+
+Greet returns the greeting message.
+
+## Source
+
+```go
+func (g *Greeter) Greet() string {
+	return "hello " + g.Name
+}
+```

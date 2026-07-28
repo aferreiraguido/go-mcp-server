@@ -1,0 +1,7 @@
+# Callers: `NewGreeter(` (3)
+
+| Location | Context |
+|---|---|
+| `greeter.go:23` | `func NewGreeter(name string, w io.Writer) *Greeter {` |
+| `greeter_test.go:6` | `g := NewGreeter("test", nil)` |
+| `main.go:31` | `g := NewGreeter(DefaultName, io.Discard)` |

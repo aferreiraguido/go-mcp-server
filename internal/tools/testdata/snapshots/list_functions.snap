@@ -1,0 +1,14 @@
+# Functions (10)
+
+| Name | Signature | Receiver | Exported | Location |
+|---|---|---|---|---|
+| `Double` | `(n int) int` | `-` | yes | `sub/sub.go:8` |
+| `Greet` | `() string` | `*Greeter` | yes | `greeter.go:28` |
+| `NewGreeter` | `(name string, w io.Writer) *Greeter` | `-` | yes | `greeter.go:23` |
+| `Speak` | `(msg string) string` | `*Greeter` | yes | `greeter.go:33` |
+| `String` | `() string` | `*Greeter` | yes | `greeter.go:38` |
+| `TestGreet` | `(t *testing.T)` | `-` | yes | `greeter_test.go:5` |
+| `helper` | `(s string) string` | `-` | no | `main.go:37` |
+| `init` | `()` | `-` | no | `main.go:26` |
+| `main` | `()` | `-` | no | `main.go:30` |
+| `reset` | `()` | `*Greeter` | no | `greeter.go:43` |

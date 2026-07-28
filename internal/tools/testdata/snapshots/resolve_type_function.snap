@@ -1,0 +1,5 @@
+# Resolve: `NewGreeter` (1)
+
+| Kind | Type | Package | Location |
+|---|---|---|---|
+| `func` | `func(name string, w io.Writer) *Greeter` | `example.com/samplemodule` | `greeter.go:23` |

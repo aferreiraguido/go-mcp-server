@@ -1,0 +1,15 @@
+# Hierarchy: `Speaker`
+
+**Kind:** interface
+
+## Embeds (1)
+
+| Type | Location |
+|---|---|
+| `fmt.Stringer` | `fmt` (external) |
+
+## Implementations (1)
+
+| Type | Via | Location |
+|---|---|---|
+| `*Greeter` | `pointer` | `greeter.go:16` |

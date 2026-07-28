@@ -1,0 +1,9 @@
+# Hierarchy: `Greeter`
+
+**Kind:** struct
+
+## Embeds (1)
+
+| Type | Location |
+|---|---|
+| `io.Writer` | `greeter.go:19` |

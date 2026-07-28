@@ -1,0 +1,5 @@
+# Error
+
+```
+path '../../../etc/passwd' is not local: it must be relative and must not escape the project root
+```

@@ -1,0 +1,5 @@
+# Unchecked Errors (1)
+
+| Severity | Pattern | Location | Context |
+|---|---|---|---|
+| `high` | `unchecked error return from fmt.Println` | `main.go:32` | `fmt.Println(g.Greet())` |

@@ -1,0 +1,13 @@
+# Entry Points (2)
+
+## func main()
+
+| Package | Location |
+|---|---|
+| `main` | `main.go:30` |
+
+## func init()
+
+| Package | Location |
+|---|---|
+| `main` | `main.go:26` |

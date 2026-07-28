@@ -1,0 +1,22 @@
+# Program Summary
+
+| Metric | Value |
+|---|---|
+| Module | `example.com/samplemodule` |
+| Go version | 1.21 |
+| Kind | module |
+| Packages | 2 |
+| Files (.go) | 4 |
+| Lines | 108 |
+| Functions | 6 |
+| Methods | 4 |
+| Structs | 1 |
+| Interfaces | 1 |
+| Constants | 5 |
+| Variables | 2 |
+| Imports (unique) | 4 |
+| Dependencies (go.mod) | 2 |
+
+## Entry Points
+
+- `main` in package `main` at `main.go:30`

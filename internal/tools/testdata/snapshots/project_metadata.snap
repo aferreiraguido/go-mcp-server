@@ -1,0 +1,10 @@
+# Project Metadata
+
+| Field | Value |
+|---|---|
+| Name | `sample_module` |
+| Alias | `sample` |
+| Kind | module |
+| Path | `/fixtures/sample_module` |
+| Module | `example.com/samplemodule` |
+| Go | 1.21 |

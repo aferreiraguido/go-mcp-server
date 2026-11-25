@@ -5,3 +5,7 @@
 # Go
 *.test
 *.out
+
+# IDEs and OS
+.idea/
+.DS_Store

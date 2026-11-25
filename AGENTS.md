@@ -17,10 +17,11 @@ It is the Go counterpart of `cobol-mcp-server`, `java-mcp-server`,
 no hallucination), different domain and different parser (stdlib + go/types
 instead of ProLeap/Spoon/LibCST/ra_ap_*).
 
-> ✅ **Status**: **iteration 5 completed** — loader (path/Git/archive),
-> static analysis with `go/ast` + `x/mod/modfile`, **43 tools** (23 iter 2
-> + 5 semantic + 6 bug pattern + 3 domain + 6 new iter 5). **65 tests** (56 golden
-> snapshots + 9 unit + 1 content). CI workflow + Dockerfile multi-stage.
+> ✅ **Status**: **iteration 6 completed** — dual transport (`stdio` default + Streamable `http`
+> on `/mcp` with `--mode/--port/--host/--max-threads/--api-keys` and Bearer token auth;
+> loader (path/Git/archive), static analysis with `go/ast` + `x/mod/modfile`, **43 tools**
+> (23 iter 2 + 5 semantic + 6 bug pattern + 3 domain + 6 iter 5). **72 tests** (56 golden
+> snapshots + 16 unit/integration + 1 content). CI workflow + Dockerfile multi-stage.
 
 ---
 
@@ -56,7 +57,12 @@ instead of ProLeap/Spoon/LibCST/ra_ap_*).
   - `github.com/modelcontextprotocol/go-sdk` v1.6.1 (official) — package `mcp`
   - `golang.org/x/mod` v0.38.0 — `modfile` (go.mod/go.work parsing)
   - `go/ast` + `go/parser` + `go/printer` (stdlib, iter 2)
-- Transport: `mcp.StdioTransport` (JSON newline-delimited, no reflection)
+- Transport:
+  - Default: `stdio` (`mcp.StdioTransport`, JSON newline-delimited, no reflection)
+  - HTTP mode: Streamable HTTP (`mcp.StreamableHTTPHandler` via standard library `net/http` on `/mcp`)
+- Smoke tests:
+  - Stdio: `./scripts/smoke.sh`
+  - Streamable HTTP: `./scripts/smoke-http.sh --port 18080`
 - Logging: `log/slog` to file (`GO_MCP_LOG_FILE`, default
   `/tmp/go_mcp_server.log`; level `GO_MCP_LOG_LEVEL`, default `info`).
   **NEVER to stdout** — stdout is the protocol channel.
@@ -333,6 +339,10 @@ of a tool:
 4. Does my answer explicitly distinguish between **"what the code does today"**
    (verified) and **"what it should do"** (proposal)?
 5. If I propose a change, does it include a procedure to verify it?
+6. **Are you calling tools that exist in this MCP?** Don't confuse with tools from
+   other MCP servers (`java-mcp-server`, `cobol-mcp-server`, `rust-mcp-server`,
+   `python-mcp-server`, `javascript-mcp-server`). Each MCP has its own tools.
+   If you need to analyze code in another language, use the corresponding MCP.
 
 ---
 
@@ -411,6 +421,7 @@ content checks, not snapshots (lesson from rust iter 7+).
 | **3** | Semantic layer `go/packages`+`go/types` (lazy — expensive cold): `resolve_type`, `find_implementations` (interfaces — implicit in Go, high value), `function_call_graph`, `struct_field_xref`, `get_type_hierarchy` (embedding). **5 new tools, 11 tests (6 snapshots).** | ✅ Done |
 | **4** | `BugPatternAnalyzer` — sweeps like `cobol-bug-hunt`: `find_unchecked_errors` (errcheck-style), `find_panic_sites`, `find_unsafe_patterns`, `find_goroutine_leaks` (heuristic), `find_defer_in_loops`, `find_dead_code` (semantic with go/types). **6 new tools.** | ✅ Done |
 | **5** | CI workflow + Dockerfile multi-stage + domain (`detect_framework` gin/echo/grpc/cobra, `list_api_endpoints`, `extract_environment_dependencies`). **3 new tools + infra.** | ✅ Done |
+| **6** | Dual transport parity (MCP_CONTRACT): `stdio` (default) + Streamable HTTP (`/mcp`, `--mode http --port/--host/--max-threads/--api-keys`). Bearer token auth (`ApiKeyStore`), `net/http` + `mcp.NewStreamableHTTPHandler`, `internal/transport/http_transport_test.go` (lifecycle + auth), `scripts/smoke-http.sh` (E2E check). **72 tests green (56 snapshots + 16 unit/integration), 0 warnings.** | ✅ Done |
 
 **Iteration rule**: each iteration ends with `go test ./...` green + smoke
 test end-to-end OK + snapshot diff reviewed if applicable. No skipping to

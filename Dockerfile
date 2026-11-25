@@ -9,4 +9,6 @@ FROM alpine:3.21
 RUN apk add --no-cache ca-certificates tzdata
 COPY --from=builder /go-mcp-server /usr/local/bin/go-mcp-server
 USER 1001:1001
+EXPOSE 8080
 ENTRYPOINT ["go-mcp-server"]
+CMD ["--mode", "http", "--port", "8080", "--host", "0.0.0.0"]

@@ -20,17 +20,52 @@ Go sibling of [`cobol-mcp-server`](../cobol-mcp-server),
 - Analysis: `go/ast` + `go/parser` (stdlib) and
   [`golang.org/x/mod/modfile`](https://pkg.go.dev/golang.org/x/mod/modfile) (go.mod/go.work)
 - Semantic: `golang.org/x/tools/go/packages` + `go/types`
-- Transport: stdio (JSON newline-delimited)
+- Transport:
+  - Default: `stdio` (JSON newline-delimited)
+  - HTTP mode: Streamable HTTP (`mcp.StreamableHTTPHandler` on `/mcp`) with optional Bearer auth
 
 ## Build and test
 
 ```sh
 go build -o go-mcp-server .          # binary ~8 MB, static
 go vet ./...                         # compile check
-go test ./...                        # 65 tests (56 golden snapshots + unit)
+go test ./...                        # unit + integration + golden snapshot tests
 go test ./internal/tools/ -update    # regenerate golden snapshots
-./scripts/smoke.sh                   # end-to-end smoke test (JSON-RPC)
+./scripts/smoke.sh                   # end-to-end smoke test (stdio)
+./scripts/smoke-http.sh              # end-to-end smoke test (Streamable HTTP on :18080)
 ```
+
+## Transport modes
+
+`go-mcp-server` supports dual transport:
+
+### Stdio mode (default)
+
+Subprocess mode for local clients like OpenCode or Claude Desktop.
+
+```sh
+./go-mcp-server                      # defaults to --mode stdio
+```
+
+### HTTP Streamable mode
+
+Listens on HTTP using the official Streamable HTTP transport at `/mcp`.
+
+```sh
+./go-mcp-server --mode http --port 8080 --host 0.0.0.0
+```
+
+CLI flags and environment variables:
+
+| Flag | Env | Default | Description |
+|------|-----|---------|-------------|
+| `--mode` | `GO_MCP_MODE` | `stdio` | Transport mode: `stdio` or `http` |
+| `--port` | `GO_MCP_PORT` | `8080` | HTTP port to bind |
+| `--host` | `GO_MCP_HOST` | `0.0.0.0` | HTTP host to bind |
+| `--max-threads` | - | `16` | Accepted for CLI contract compatibility |
+| `--api-keys` | `GO_MCP_API_KEYS` | - | Path to keys file (JSON array or lines) or comma-separated tokens |
+
+When `--api-keys` is set, any request to `/mcp` without a valid `Authorization: Bearer <token>` header returns `401 Unauthorized`.
 
 ## Usage with opencode
 
